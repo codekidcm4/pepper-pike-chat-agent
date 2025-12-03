@@ -15,14 +15,15 @@ export const STARTER_PROMPTS: StartScreenPrompt[] = [
 
 export const PLACEHOLDER_INPUT = "Ask anything...";
 
-export const GREETING = "Welcome to the Pepper Pike Professor!?";
+export const GREETING = "Welcome to the Pepper Pike Professor!";
 
 export const ui = {
   defaultMessage: {
-    role: 'assistant',
+    role: "assistant",
     content:
       "Hi! I'm the Pepper Pike Professor. I can help you with questions about our city, its history, or general inquiries. What would you like to know?",
-  };
+  },
+};
 
 export const getThemeConfig = (theme: ColorScheme): ThemeOption => ({
   color: {
