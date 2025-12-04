@@ -29,11 +29,11 @@ export const getThemeConfig = (theme: ColorScheme): ThemeOption => ({
       level: 3,
     },
   },
+  radius: "round",
   disclaimer: {
     text: "Responses are AI-generated and may be inaccurate.",
-    highContrast: true // optional
+    highContrast: true, // optional
   },
-  radius: "round",
   // Add other theme options here
   // chatkit.studio/playground to explore config options
 });
