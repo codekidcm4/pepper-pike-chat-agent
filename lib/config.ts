@@ -17,7 +17,15 @@ export const PLACEHOLDER_INPUT = "Ask anything about Pepper Pike...";
 
 export const GREETING = "Welcome to the Pepper Pike Professor! How can I help you today?";
 
-export const getThemeConfig = (theme: ColorScheme): ThemeOption => ({
+/**
+ * Note: the ThemeOption type from @openai/chatkit may not include a `disclaimer`
+ * property. To ensure TypeScript accepts the extra `disclaimer` config while
+ * keeping the returned value compatible with ThemeOption, we intersect the
+ * ThemeOption type with a local disclaimer shape.
+ */
+export const getThemeConfig = (
+  theme: ColorScheme
+): ThemeOption & { disclaimer?: { text: string; highContrast?: boolean } } => ({
   color: {
     grayscale: {
       hue: 220,
@@ -32,7 +40,7 @@ export const getThemeConfig = (theme: ColorScheme): ThemeOption => ({
   radius: "round",
   disclaimer: {
     text: "Responses are AI-generated and may be inaccurate.",
-    highContrast: true, // optional
+    highContrast: true,
   },
   // Add other theme options here
   // chatkit.studio/playground to explore config options
