@@ -28,6 +28,10 @@ export const getThemeConfig = (theme: ColorScheme): ThemeOption => ({
       primary: theme === "dark" ? "#f1f5f9" : "#127048",
       level: 3,
     },
+    disclaimer={
+    text: "Responses are AI-generated and may be inaccurate.",
+    highContrast: true // Optional
+  }
   },
   radius: "round",
   // Add other theme options here
