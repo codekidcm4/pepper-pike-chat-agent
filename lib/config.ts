@@ -1,4 +1,9 @@
-import { ColorScheme, StartScreenPrompt, ThemeOption } from "@openai/chatkit";
+import {
+  ColorScheme,
+  StartScreenPrompt,
+  ThemeOption,
+  DisclaimerOption,
+} from "@openai/chatkit";
 
 export const WORKFLOW_ID =
   process.env.NEXT_PUBLIC_CHATKIT_WORKFLOW_ID?.trim() ?? "";
@@ -15,17 +20,15 @@ export const STARTER_PROMPTS: StartScreenPrompt[] = [
 
 export const PLACEHOLDER_INPUT = "Ask anything about Pepper Pike...";
 
-export const GREETING = "Welcome to the Pepper Pike Professor! How can I help you today?";
+export const GREETING =
+  "Welcome to the Pepper Pike Professor! How can I help you today?";
 
-/**
- * Note: the ThemeOption type from @openai/chatkit may not include a `disclaimer`
- * property. To ensure TypeScript accepts the extra `disclaimer` config while
- * keeping the returned value compatible with ThemeOption, we intersect the
- * ThemeOption type with a local disclaimer shape.
- */
-export const getThemeConfig = (
-  theme: ColorScheme
-): ThemeOption & { disclaimer?: { text: string; highContrast?: boolean } } => ({
+export const DISCLAIMER: DisclaimerOption = {
+  text: "Responses are AI-generated and may be inaccurate.",
+  highContrast: true,
+};
+
+export const getThemeConfig = (theme: ColorScheme): ThemeOption => ({
   color: {
     grayscale: {
       hue: 220,
@@ -38,10 +41,4 @@ export const getThemeConfig = (
     },
   },
   radius: "round",
-  disclaimer: {
-    text: "Responses are AI-generated and may be inaccurate.",
-    highContrast: true,
-  },
-  // Add other theme options here
-  // chatkit.studio/playground to explore config options
 });
